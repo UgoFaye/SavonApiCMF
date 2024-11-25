@@ -1,9 +1,6 @@
 package org.ldv.savonapi.model.entity
 
-import jakarta.persistence.Entity
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
+import jakarta.persistence.*
 
 @Entity
 
@@ -21,6 +18,14 @@ class Ingredients (
     var tenueMousse: Float? = null,
     var durete: Float? = null,
     var solubilite: Float? = null,
-    var sechage: Float? = null
-    )
+    var sechage: Float? = null,
+
+   @ManyToMany
+   @JoinTable(
+       name = "ingredients_recettes",
+       joinColumns = [JoinColumn(name = "ingredients_id")],
+       inverseJoinColumns = [JoinColumn(name = "recettes_id")]
+   )
+   var recettes: MutableList<Recettes> = mutableListOf()
+)
 {}
