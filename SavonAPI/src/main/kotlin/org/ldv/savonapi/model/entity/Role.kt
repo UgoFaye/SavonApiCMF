@@ -1,7 +1,6 @@
 package org.ldv.savonapi.model.entity
 
 import jakarta.persistence.*
-import java.sql.Date
 
 @Entity
 class Role (

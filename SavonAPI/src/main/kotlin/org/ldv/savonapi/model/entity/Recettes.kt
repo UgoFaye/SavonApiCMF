@@ -3,8 +3,6 @@ package org.ldv.savonapi.model.entity
 import jakarta.persistence.*
 
 @Entity
-
-
 class Recettes (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
