@@ -1,13 +1,13 @@
 
 package org.ldv.savonapi.service
-import org.ldv.savonapi.model.dao.CaracteritiqueDAO
+import org.ldv.savonapi.model.dao.CaracteristiqueDAO
 import org.ldv.savonapi.model.dao.IngredientsDAO
 import org.ldv.savonapi.model.entity.Ingredients
 import org.springframework.boot.CommandLineRunner
 import org.springframework.stereotype.Component
-import org.springframework.transaction.annotation.Transactional
+
 @Component
-class DataInitializer (val ingredientDAO: IngredientsDAO, val caracteristiqueDAO: CaracteritiqueDAO) : CommandLineRunner {
+class DataInitializer (val ingredientDAO: IngredientsDAO, val caracteristiqueDAO: CaracteristiqueDAO) : CommandLineRunner {
     override fun run(vararg args: String?) {
         //Pour importer les ingredients 
         if (ingredientDAO.count() == 0L) { // Éviter les doublons
@@ -18,7 +18,7 @@ class DataInitializer (val ingredientDAO: IngredientsDAO, val caracteristiqueDAO
         }
         // Pour importer les caracteristiques ...
         if (caracteristiqueDAO.count() == 0L) {
-            
+
         }
 
     }

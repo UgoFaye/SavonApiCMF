@@ -20,8 +20,7 @@ class Caracteristique (
     var solubilite: Float? = null,
     var sechage: Float? = null,
 
-    @ManyToMany
-    @JoinColumn(name = "recette_id")
-    var recettes: MutableList<Recettes> = mutableListOf()
+    @OneToMany(mappedBy = "caracteristique")
+    var resultats: MutableList<Resultat> = mutableListOf()
 ) {
 }

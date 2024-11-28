@@ -17,6 +17,6 @@ class Resultat (
     @MapsId("recettes_id")
     @ManyToOne
     @JoinColumn(name = "recettes_id")
-    var recettes: Recettes? = null
+    var recette: Recettes? = null
 ) {
 }

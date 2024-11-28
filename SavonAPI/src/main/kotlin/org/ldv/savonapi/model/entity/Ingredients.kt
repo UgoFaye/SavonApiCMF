@@ -6,6 +6,7 @@ import jakarta.persistence.*
 class Ingredients (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
 
     var id: Long? = null,
     var nom: String? = null,
@@ -19,13 +20,10 @@ class Ingredients (
     var durete: Float? = null,
     var solubilite: Float? = null,
     var sechage: Float? = null,
+    @OneToMany(mappedBy = "ingredient", cascade = [CascadeType.REMOVE], orphanRemoval = true)
+    var quantites: MutableList<Quantite> = mutableListOf()
 
-   @ManyToMany
-   @JoinTable(
-       name = "ingredients_recettes",
-       joinColumns = [JoinColumn(name = "ingredients_id")],
-       inverseJoinColumns = [JoinColumn(name = "recettes_id")]
-   )
-   var recettes: MutableList<Recettes> = mutableListOf()
 ) {
+
+
 }
